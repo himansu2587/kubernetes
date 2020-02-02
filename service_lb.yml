@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+        name: my-lb-service
+spec:
+        type: LoadBalancer
+        externalIPs:
+                - 18.191.71.237
+
+        ports:
+                - port: 8080 #service_port
+                  targetPort: 80 #Pod/container port
+                  nodePort: 32000 #This range is from 30000 to 32767
+        selector:
+                app: nginx
